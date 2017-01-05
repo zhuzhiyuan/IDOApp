@@ -1,0 +1,17 @@
+*.Publish.xml
+[Pp]ackages/
+[Rr]elase/
+[Dd]ebug/
+[Oo]bj/
+[Ll]ogs/
+[Ll]og/
+[Bb]uild/
+bin/
+PublishProfiles/
+node_modules/
+ReleasePackages/
+Libs/log.txt
+
+*.orig
+.vs/
+**/TestResults/
