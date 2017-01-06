@@ -3,16 +3,17 @@ import {NavigationExperimental, StyleSheet,View,Text,Image, TouchableOpacity } f
 import Images from '@assets/Images'
 import Style from '@assets/Style'
 const {
-  CardStack: NavigationCardStack,
   StateUtils: NavigationStateUtils,
-  Header:NavigationHeader
+  Transitioner: NavigationTransitioner,
+  Card: NavigationCard,
+  CardStack: NavigationCardStack,
+  Header: NavigationHeader
 } = NavigationExperimental;
 export default class Navigator extends Component {
 
   // This sets up the methods (e.g. Pop, Push) for navigation.
-  
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state={
       title:"",
       hideHeader:false,
@@ -107,6 +108,7 @@ export default class Navigator extends Component {
           pop:this._onPopRoute,
           replace:this._onReplaceRoute
         };
+        console.log(sceneProps.scene.route);
         return (
           <Component
             {...sceneProps}
