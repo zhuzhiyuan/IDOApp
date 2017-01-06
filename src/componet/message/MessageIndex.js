@@ -9,26 +9,25 @@ import {
   AppRegistry,
   TouchableOpacity,
   StyleSheet,
+  Button,
   Text,
   View
 } from 'react-native';
 
-import MessageSession from './MessageSessionView';
-import {Height} from '../../style/Theme';
-
-export default class MessageBox extends Component {
+import MessageSession from '@componet/message/MessageSession';
+import {Height} from '@assets/Style';
+import Navigator from '@util/Navigation/Navigator'
+class MessageBox extends Component {
   constructor(props) {
     super(props);
-    
-  }
-  componentDidMount() {
+    this.props.route.title='消息';
   }
   render() {
     return (
-        <View style={{paddingTop:Height.NavBar}}>
+        <View>
           <TouchableOpacity
               onPress={() => this.props.navigator.push({
-                showNav:true,
+                showNavBar:true,
                 title:'聊天',
                 name:'MessageSession',
                 component:MessageSession
@@ -36,6 +35,16 @@ export default class MessageBox extends Component {
               <Text>this is a message box page</Text>
           </TouchableOpacity>
         </View>
+    );
+  }
+}
+export default class MessageIndex extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+        <Navigator/>
     );
   }
 }

@@ -13,14 +13,24 @@ import {
   Button,
   View
 } from 'react-native';
-import Color from '../../style/Theme';
-import {login} from '../../componet/account/LoginController';
-import TabNav from '../layout/TabNav'
-export default class LoginView extends Component {
+import Color from '@assets/Style';
+import TabNav from '@componet/layout/TabNav'
+import Images from '@assets/Images'
+export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {account: '',password:''};
+    this.props.route.title='登录';
+    this.props.route.hideHeader=true;
   }
+
+  _login(){
+    this.props.navigator.replace({
+                    key:this.props.route.key,
+                    component:TabNav
+                  });
+  }
+  
   render() {
     return (
        <View style={styles.container}>
@@ -32,7 +42,7 @@ export default class LoginView extends Component {
         </View>
         <View style={styles.middle}>
           <View style={styles.inputView}>
-            <Image source={require('../../image/login_account.png')}
+            <Image source={Images.loginAccount}
             style={styles.inputIcon}
             />
               <TextInput
@@ -43,7 +53,7 @@ export default class LoginView extends Component {
             />
           </View>
           <View style={styles.inputView}>
-            <Image  source={require('../../image/login_password.png')}
+            <Image  source={Images.loginPassword}
             style={styles.inputIcon}
             />
             <TextInput
@@ -58,16 +68,7 @@ export default class LoginView extends Component {
              <Button
               style={styles.button}
               title="登录"
-              onPress={()=>{
-                login(this.state.account,this.state.password,()=>{
-                  this.props.navigator.replace({
-                    name:'TabNav',
-                    title:"消息",
-                    showNav:true,
-                    component:TabNav
-                  });
-                })
-              }}/>
+              onPress={()=>this._login()}/>
           </View>
         </View>
         <View style={styles.footer}>

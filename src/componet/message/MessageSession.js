@@ -11,15 +11,16 @@ import {
   Text,
   View
 } from 'react-native';
-import {Height} from '../../style/Theme';
+import {Height} from '@assets/Style';
 
 export default class MessageSession extends Component {
   constructor(props) {
     super(props);
+    this.props.route.title='会话';
   }
   render() {
     return (
-        <View style={{paddingTop:Height.NavBar}}>
+        <View>
             <Text>this is a message session page</Text>
         </View>
     );

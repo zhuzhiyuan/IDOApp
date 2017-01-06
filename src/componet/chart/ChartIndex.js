@@ -14,6 +14,7 @@ import {
 export default class ChartIndex extends Component {
   constructor(props) {
     super(props);
+    this.props.route.title="目标";
   }
   render() {
     return (
